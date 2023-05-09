@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { likedReducer } from './liked/liked.slice';
-import { loginReducer } from './login/login.slice';
+import { activeParkingReducer } from './activeParking/activeParking.slice';
 import { cartReducer } from './cart/cart.slice';
-import { fakeStoreApi } from './fakeStoreApi/fakeStore.api';
+import { turaqApi } from './turaqApi/turaq.api';
+import { parkingsStoreReducer } from './parkingsStore/parkingsStore.slice';
 
 export const store = configureStore({
     reducer: {
-        [fakeStoreApi.reducerPath]: fakeStoreApi.reducer,
-        liked: likedReducer,
-        login: loginReducer,
+        [turaqApi.reducerPath]: turaqApi.reducer,
+        activeParking: activeParkingReducer,
         cart: cartReducer,
+        parkingsStore: parkingsStoreReducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(fakeStoreApi.middleware),
+        getDefaultMiddleware().concat(turaqApi.middleware),
 });

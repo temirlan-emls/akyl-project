@@ -7,7 +7,7 @@ import SideBarLinkItem from './sideBarLinkItem';
 
 export default function SideBar() {
     return (
-        <div className="w-2/12 h-full bg-[#5A80C8] rounded-t-2xl flex flex-col items-center">
+        <div className="w-2/12 bg-[#5A80C8] rounded-tr-3xl flex flex-col items-center">
             <p className="text-white font-extrabold text-[32px] mt-12">TURAQ</p>
             <ul className="w-6/12 mt-16 flex flex-col gap-2">
                 <SideBarLinkItem

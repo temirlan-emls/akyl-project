@@ -4,12 +4,11 @@ import logoTuraq from '../assets/logo_turaq.png';
 import loginEye from '../assets/login_eye.svg';
 
 export default function LoginPage() {
-    const [isPasswordShown, setIsPasswordShown] = useState(false);
-
     useEffect(() => {
         document.title = 'Login';
     }, []);
 
+    const [isPasswordShown, setIsPasswordShown] = useState(false);
     const {
         register,
         handleSubmit,
