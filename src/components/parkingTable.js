@@ -15,7 +15,7 @@ export default function ParkingTable() {
         if (data && data.length) {
             addToParkingsStore(data);
         }
-    }, [data, addToParkingsStore]);
+    }, [data]);
 
     return (
         <>

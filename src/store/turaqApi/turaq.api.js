@@ -32,7 +32,7 @@ export const turaqApi = createApi({
         updateParking: build.mutation({
             query: (id, query) => ({
                 url: `admin/parkings/update/${id}`,
-                method: 'DELETE',
+                method: 'PUT',
                 body: query,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
