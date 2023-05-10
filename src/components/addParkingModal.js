@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-
+import { useActions } from '../hooks/useAction';
 import { useAddParkingMutation } from '../store/turaqApi/turaq.api';
 
 export default function AddParkingModal() {
     const newParking = useSelector((state) => state.activeParking.isCreating);
     const [addParking] = useAddParkingMutation();
-    console.log(newParking);
+    const { toggleNewLineForParking } = useActions();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -102,11 +102,18 @@ export default function AddParkingModal() {
             alert('Empty inputs');
         }
     };
+
+    const handleExit = (e) => {
+        if (e.target === e.currentTarget) {
+            toggleNewLineForParking();
+        }
+    };
     return (
         <div
             className={`w-screen h-screen top-0 left-0 bg-black/30 flex justify-center items-center ${
                 newParking ? 'absolute' : 'hidden'
-            }`}
+            } `}
+            onClick={(e) => handleExit(e)}
         >
             <div className="w-4/12 h-4/5 bg-white rounded-xl flex flex-col items-center">
                 <h2 className="text-2xl font-bold mt-10 mb-8">
