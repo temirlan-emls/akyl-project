@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     activeParking: [],
     parkingToDelete: [],
+    isCreating: false,
 };
 
 export const activeParking = createSlice({
@@ -22,6 +23,9 @@ export const activeParking = createSlice({
         },
         removeFromDeleteParking: (state, action) => {
             state.parkingToDelete = [];
+        },
+        toggleNewLineForParking: (state, action) => {
+            state.isCreating = !state.isCreating;
         },
     },
 });

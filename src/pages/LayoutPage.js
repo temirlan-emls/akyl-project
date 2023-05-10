@@ -3,6 +3,7 @@ import SideBar from '../components/sideBar';
 import SelectLanguage from '../components/selectLanguage';
 import UserMenu from '../components/userMenu';
 import RemoveParkingModal from '../components/removeParkingModal';
+import AddParkingModal from '../components/addParkingModal';
 
 export default function LayoutPage() {
     return (
@@ -16,6 +17,7 @@ export default function LayoutPage() {
                 <Outlet />
             </div>
             <RemoveParkingModal />
+            <AddParkingModal />
         </div>
     );
 }

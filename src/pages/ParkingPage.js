@@ -1,92 +1,13 @@
 import EditParking from '../components/editParking';
 import ParkingTable from '../components/parkingTable';
-import { useAddParkingMutation } from '../store/turaqApi/turaq.api';
+import { useActions } from '../hooks/useAction';
 
 export default function ParkingPage() {
-    const [addParking] = useAddParkingMutation();
+    const { toggleNewLineForParking } = useActions();
 
     const handleClick = () => {
-        addParking(
-            JSON.stringify({
-                name: 'Par221',
-                latitude: 1.113,
-                longitude: 2.223,
-                capacity: 10,
-                price: 50,
-                places: [
-                    {
-                        id: 1,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 2,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 3,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 4,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 5,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 6,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 7,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 8,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 9,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                    {
-                        id: 10,
-                        parkingStatus: 'FREE',
-                        parkingStartTime: null,
-                        parkingEndTime: null,
-                        parkedCar: null,
-                    },
-                ],
-            })
-        );
+        toggleNewLineForParking();
+
     };
 
     return (
