@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useUpdateParkingMutation } from '../store/turaqApi/turaq.api';
+import { useActions } from './../hooks/useAction';
 
 export default function EditParking() {
     const activeParking = useSelector(
@@ -48,9 +49,9 @@ export default function EditParking() {
     };
 
     const [updateParking] = useUpdateParkingMutation();
-
+    const { removeFromActiveParking } = useActions();
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const { places, ...originalItem } = activeParking[0];
         const submitItem = {
             id: +e.target.parkingID.value,
@@ -61,11 +62,15 @@ export default function EditParking() {
             capacity: +e.target.capacity.value,
         };
 
-        console.log(activeParking[0]);
         if (isEqual(submitItem, originalItem)) {
             alert('No changes');
         } else {
-            updateParking(submitItem.id, { ...submitItem, places: places });
+            updateParking({
+                id: +submitItem.id,
+                body: JSON.stringify(submitItem),
+            });
+            removeFromActiveParking();
+            window.location.reload(false);
         }
     };
 

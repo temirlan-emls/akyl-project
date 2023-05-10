@@ -6,7 +6,6 @@ export const turaqApi = createApi({
         baseUrl: 'http://185.129.50.69:8080/',
         mode: 'cors',
     }),
-
     endpoints: (build) => ({
         getParkings: build.query({
             query: () => ({
@@ -30,10 +29,10 @@ export const turaqApi = createApi({
             }),
         }),
         updateParking: build.mutation({
-            query: (id, query) => ({
+            query: ({ id, body }) => ({
                 url: `admin/parkings/update/${id}`,
                 method: 'PUT',
-                body: query,
+                body: body,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
